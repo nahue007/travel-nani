@@ -1,9 +1,16 @@
 import Database from "better-sqlite3";
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
+console.log("DB.JS VERSION CHECK: fix-v2-cargado");
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const db = new Database(path.join(__dirname, "data", "expenses.db"));
+const dataDir = path.join(__dirname, "data");
+
+fs.mkdirSync(dataDir, { recursive: true });
+
+const db = new Database(path.join(dataDir, "expenses.db"));
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS movements (

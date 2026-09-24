@@ -1,0 +1,17 @@
+{
+  "name": "travel-expenses-bot",
+  "version": "1.0.0",
+  "description": "Bot de Telegram para trackear gastos de viaje con categorizacion por IA",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}

@@ -1,16 +1,9 @@
 import Database from "better-sqlite3";
-import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dataDir = path.join(__dirname, "data");
-
-// Git no versiona carpetas vacias, asi que en el deploy "data/" puede no existir.
-// La creamos nosotros mismos antes de abrir la base.
-fs.mkdirSync(dataDir, { recursive: true });
-
-const db = new Database(path.join(dataDir, "expenses.db"));
+const db = new Database(path.join(__dirname, "data", "expenses.db"));
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS movements (
